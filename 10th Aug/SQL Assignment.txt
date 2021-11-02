@@ -1,0 +1,87 @@
+
+# Count total no. of Employees
+select count(empid) from employee;
+
+#	Count total no. of employees in HR dept
+select count(dname) from employee where dname='HR';
+
+#•	Count total no. of employees in each dept
+select dname,count(*) from employee group by dname;
+
+#•	Count total no. of employees earning 9000 or below in each dept
+select dname,count(*) from employee where salary<= 3000 group by dname;
+
+#•	Count distinct joining months in the employee table
+select count(distinct month(hiredate)) as months from emp;
+
+#•	Find the employee with the lowest salary
+select ename,salary from employee 
+where salary=(select min(salary) from employee);
+
+#•	Find the lowest salaries in each dept
+select salary,ename,dname from (select * , rank() over (partition by dname order by salary ) as r
+from employee) sub
+where r=1;
+
+#•	Find month-wise minimum salaries
+
+
+select empid,ename,Salary,sal_date from (select * , rank() over (partition by month(sal_date) order by salary ) as r
+from employee) sub
+where r=1;
+
+#•	Find full employee detail having the lowest salary
+select * from employee having salary=(select min(salary) from employee);
+
+#•	Find the employee with the highest salary
+
+select ename,salary from employee where salary=(select max(salary) from employee);
+
+#•	Find the highest salaries in each dept
+select Dname,salary from (select * , rank() over (partition by dname order by salary desc) as r
+from employee) sub
+where r=1;
+
+#•	Find month-wise maximum salaries
+
+select empid,ename,salary,sal_date from (select * , rank() over (partition by month(sal_date) order by salary desc) as r
+from employee) sub
+where r=1;
+
+#•	Find full employee detail having the 3rdhighest salary
+
+select * from employee
+where salary=(select max(salary) from employee 
+where salary<(select max(salary) from employee
+where salary <(select max(salary)from employee)));
+
+#•	Find the sum all employee salaries
+
+select sum(salary) as sum_salary from employee;
+
+#•	Find the sum of salaries in each dept
+select dname,sum(salary) from employee group by dname; 
+
+#•	Find month-wise sum of salaries
+
+select month(sal_date)as mnth,sum(salary) from employee group by mnth order by mnth;
+
+#•	Find the AVG of all employee salaries
+select avg(salary) from employee;
+
+#•	Find the AVG of salaries in each dept
+
+select dname,avg(salary) from employee group by dname;
+
+#•	Find month-wise AVG of salaries
+select month(sal_date) as sal_month,avg(salary) from employee group by sal_month order by sal_month;
+
+#•	Sort the Above table by Salary and Partition by Department
+
+select * , RANK() over ( partition by dname ORDER BY SALARY desc)sal_rank
+from employee;
+
+#•Using the above set Derive the salary_rank
+
+select *, dense_rank() over (order by sal desc) as salary_rank from emp;
+

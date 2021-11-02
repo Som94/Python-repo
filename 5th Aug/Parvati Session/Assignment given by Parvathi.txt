@@ -1,0 +1,62 @@
+'''
+1.input a number and add all of its digits,find avg , highest and lowest among the digits
+'''
+
+number=int(input("Enter any digit Number :"))
+
+sum_of_digit=0
+count=0
+list_digit=[]
+for i in str(number):
+    list_digit.append(int(i))
+    sum_of_digit=sum_of_digit+int(i)
+    count=count+1
+list_digit.sort()
+print("Sum of all digit of gib=ven number is :",sum_of_digit)
+print('Average of all digit is :',sum_of_digit/count)
+print('highest among the digit is :',list_digit[-1])
+print('Lowest among the digit is :',list_digit[0])
+
+
+
+'''
+2.
+input ten 2 digits numbers, and store them into a tuple.
+display 1 by 1 and at same time remove the element.
+find the total of first 8 numbers only.
+'''
+list_num=[]
+count=0
+sum_of_8=0
+
+flag=True
+while flag:
+    
+    number=int(input("Enter two digit Number :"))
+   
+    if number>9 and number<100:
+        list_num.append(number)
+    else:
+        print("Enter Two digit number only..")
+    
+    
+    #print(list_num)
+    #print(len(list_num))
+    if len(list_num)>=10:
+        flag=False
+ 
+list_num1=list_num.copy()
+
+len_list_num=0
+while len(list_num)>len_list_num:
+    print('The Element is :',list_num[len_list_num])
+           
+    print("Remove :",list_num1.pop(len_list_num-len(list_num)))
+    
+    len_list_num=len_list_num+1
+     
+print("Sum off first 8 numbers is :",sum(list_num[:8]))
+print('Ten 2 digit numbers of tuple :',tuple(list_num))
+
+    
+

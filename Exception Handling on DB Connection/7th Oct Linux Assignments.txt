@@ -1,0 +1,50 @@
+ 
+
+Create a file using vi called product.dat
+
+ 
+
+(sample) looks like this
+
+Id,         prod name  catg  price     stock  Dealer  Warehouse
+
+10181  ,Laptop ,       B ,     33500 ,120  ,  Gagan,  W100
+
+19118 ,  MobileA,   C  ,   12500, 100,   Ashok,     W100
+
+91712, MobileB , B ,  19500,    250,   Gagan,  W200
+
+ 
+
+[ key in few more details – about 20 records ]
+
+Find the following using awk:-  if need be use head , tail, sort etc
+
+ 
+
+1.List all the product dealt by Gagan
+
+ awk '$6=="Gagan" {print $0 }' FS=',' product.dat
+
+2.List all the product in either warehouse W100 or W300
+  awk '/W100|W300/{print $0}' FS="," product.dat 
+3.How many products are belonging to category B
+  awk '$3=="B"{print $0}' FS="," product.dat | wc -l
+4.Which is the costliest product?
+
+5.List items having the stock position not more than 150
+
+6.Which is the cheapest product?
+
+7.List all the product ranging between 10000 to 20000 rs dealt by the dealer Ashok
+
+8.In mobile phone which is the cheapest ?
+
+9.What is the total stock of products in the warehouse W100
+
+10.List all the products not dealt by Ashok or Gagan
+ 
+
+*****
+
+ 

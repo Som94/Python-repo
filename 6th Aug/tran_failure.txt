@@ -1,0 +1,2 @@
+1000Withdraw70amount cannot be less than 1002021-08-08 20:24:13.8122841000, Deposit, 10, amount cannot be less than 100,2021-08-08 20:33:03.164640
+2000, Withdraw,78000, min balance is not met, 2021-08-08 20:41:54.363765

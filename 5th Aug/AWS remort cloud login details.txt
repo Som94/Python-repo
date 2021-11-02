@@ -1,0 +1,5 @@
+Bandapa cloud id for remot log in
+
+3.108.44.155
+username - Administrator
+Admin@123

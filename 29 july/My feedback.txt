@@ -1,0 +1,42 @@
+Good Evening,
+
+	First of all I would like to thank you team mentors and team Aroha for choosing me as a member of Aroha.
+In last 25 days I feel lots of improvement happen to my self because of Aroha only. 
+
+1. I have never experienced a real working environment nor had any kind of programing experience.
+   But after joining Aroha I gained confidence and learnt many new things that i never knew about.
+
+2. Got a good understanding of how the Business and Industry works, and How Data plays a big role in the Industry.
+
+3. Learnt about what the role of a Data Engineer is?
+ 
+4. Learnt to visualize the logic of code before writing the code which I'm not before joining in Aroha.
+
+5. Gained better understanding on conditional clauses.
+
+6. Gained a better understanding on where/how to be use conditionals clauses and iterators in an apropriate problems.
+
+7. Learnt that there are simpler smarter ways of using data structures for writing programs.
+
+8. Gained better understanding on Opp's concepts, like when we should go for Is a relationship and Has a relationship,
+   class method, static method,objects, object handler,object id and Garbage collector.
+
+9. Comes to MySQL Learnt the importance of Visualizing data to create Database, create a table , how to alter(like modify,add,rename)DDL.
+ 
+10.Learnt how to use of Insert, Update and Delete (DML) commands in a tables.
+
+11. Use of all types of Queries like simple,sub,agregate and joins, clauses like group by, having and order by and date functions ect.
+
+12. And comes to Python's library pandas, I learnt about series,dataframe and use of these two.
+
+13. Then learnt abount how to read any file like csv,excel etc and learnt how to convert one type file to other type.
+
+14. Learnt how to retrive  required data from any file(like min,max,mean,avg,count).
+
+
+I know that the last 25 days has made me better at coding than i was before, and that my time in Aroha will make me better than how I am now.
+
+I feel very greatfull for above.
+Thanks Aroha & Team. 
+
+Somnath.

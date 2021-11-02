@@ -1,0 +1,36 @@
+- Display the customer names whose age is more than 60
+
+Ans:-	select cname, year(sysdate())-year(dob) as age from emp where year(sysdate())-year(dob)>60;
+
+-- Display the customers who do not have a phone
+
+Ans:- select cname from customer where phone is null;
+
+-- Display the customers who are younger than Mike
+Ans:-	select cname from customer  where year(sysdate())-year(dob)<(select year(sysdate())-year(dob) from customer where cname='Mike');
+
+-- Display the customers who are older than Mike and younger than John
+Ans:-	select cname from customer 
+	where year(sysdate())-year(dob)>(select year(sysdate())-year(dob) from customer where cname='Mike')
+	and year(sysdate())-year(dob)<(select year(sysdate())-year(dob) from customer where cname='John');
+
+
+-- Display the youngest customer name
+
+Ans:- select cname, min(year(sysdate())-year(dob)) as age from customer;
+
+-- Display the customer names who are from the same city of Jim
+
+Ans:-select cname from customer where city=(select city from customer where cname='Jim');
+
+-- Display the customer names who are from the same city of Mike and are Men
+
+Ans:- select cname from customer where city=(select city from customer where cname='Mike') and gender='Men' ;
+
+
+-- Display all the married customer names from the city of Jim
+
+Ans:- select cname from customer where city=(select city from customer where cname='Jim') and marital_status='married';
+
+
+ 

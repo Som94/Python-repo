@@ -1,0 +1,64 @@
+
+class Product:
+    def __init__(self,prod_id,name,category,cost):
+        self.prod_id=prod_id
+        self.name=name
+        self.category=category
+        self.cost=cost
+    
+    
+    def selling_price(self):
+        if self.category=="A":
+            self.sp=self.cost+ self.cost*(10.5/100)
+            print("Selling Price of the product is :",self.sp)
+        elif self.category=="B":
+            self.sp=self.cost+ self.cost*(8.5/100)
+            print("Selling Price of the product is :",self.sp)
+        elif self.category=="C":
+            self.sp=self.cost+ self.cost*(7.5/100)
+            print("Selling Price of the product is :",self.sp)
+    def profit(self):
+        self.selling_price()
+        if self.category=="A":
+            self.profit=self.sp-self.cost
+            print("Profit in that product :",self.profit)
+        elif self.category=="B":
+            self.profit=self.sp-self.cost
+            print("Profit in that product :",self.profit)
+        elif self.category=="C":
+            self.profit=self.sp-self.cost 
+            print("Profit in that product :",self.profit)
+
+    def display(self):
+        print("Product id is :",self.prod_id)
+        print("Product Name :",self.name)
+        print("Category of product :",self.category)
+        print("Cost price of the product :",self.cost)
+        self.profit()
+        
+list_prod_id=[]     #To store unique product id
+        
+for i in range(3):
+    while True:
+        prod_id=int(input("Enter Product Id :"))
+        if prod_id not in list_prod_id:
+            list_prod_id.append(prod_id)
+            break
+        else:
+            print("Product Id already exists, Plz try another one..")
+    prod_name=input("Enter Product Name :")
+    
+    while True:
+        category=input("Enter the Product Category :")
+        if category=="A" or category=="B" or category=="C":
+            break
+        else:
+            print("Plz Enter a Apropriate Category of product A,B or C")
+    cost=int(input("Enter the cost price of the Product :")) 
+
+         
+    p=Product(  prod_id  ,prod_name,category,cost)
+    p.display()
+
+
+

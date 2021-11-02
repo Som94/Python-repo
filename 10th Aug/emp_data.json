@@ -1,0 +1,37 @@
+{
+
+	"emp_details": [
+
+		{
+
+			"emp_name": "Pankaj",
+
+			"email ": "pankaj @gmail.com",
+
+			"job_profile": "Manager"
+
+		},
+
+		{
+
+			"emp_name": "Ganesh Kumar",
+
+			"email ": "ganesh @gmail.com",
+
+			"job_profile": "Test Engg"
+
+		},
+
+		{
+
+			"emp_name": "Hari",
+
+			"email ": "hari @gmail.com",
+
+			"job_profile": "Architect"
+
+		}
+
+	]
+
+}

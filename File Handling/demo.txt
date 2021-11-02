@@ -1,0 +1,10 @@
+1.Today is Friday
+2.Tommoro is Saturday
+3.Then Sunday
+4.Then Monday
+5.Then Tuesday
+6.Then Wednusday
+7.Then Thursday
+8.Reapet Friday
+9.This Cycle 
+10. Going to be always

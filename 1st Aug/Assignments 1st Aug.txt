@@ -1,0 +1,198 @@
+'''
+1.Create a class called Product with attributes prod id, name, category of the product – should be ‘A’ , ‘B’  or ‘C’ only
+(hint you have to use a loop and force the user till he input A , B or C) and cost price of the product
+
+Selling price is cost price(CP) + profit
+
+Profit is calculated as following :-
+
+For all ‘A’ categories of product the profit percentage is 10.5% on CP
+
+For all ‘B’ categories of product the profit percentage is  8.5% on CP
+
+For all ‘C’ categories of product the profit percentage is  7.5% on CP
+
+ 
+
+Note prod Id must not be repeated. What will you do ? think and code accordingly
+
+ 
+
+If all the contents are product object should look as following in the list
+
+ 
+
+
+
+ 
+
+2.) once solution 1 is working , convert the list contents to dictionary where key is product id and the value is the entire product object
+
+ 
+
+Look like this
+
+ 
+
+
+
+ 
+
+Perform the following operation for the items in the dictionary
+
+Menu
+
+1-View the product (based on key)
+2-View all the product (View all )
+3-Delete a product (based on the key)
+4-Update the product (based on key) with the following rule:
+For A category of product whatever is the cost price , add 3.5% more of CP, recalculate the profit and the selling price
+
+(only for the product which is less than 40000, if it is above 40000 then ‘No change done’ for such product)
+
+ 
+
+For B category of product whatever is the cost price , add 2.5% more of CP , recalculate the profit and the selling price
+
+(only for the product which is between 1000 to 3000 ,  if it is above 3000 or less than 1000 then ‘No change done’ for such product)
+
+ 
+
+For C category of product whatever is the cost price , add 1.5% more , recalculate the profit and the selling price
+
+5-Exit – display ‘Thank you for using the application. Halt’
+ 
+
+
+
+'''
+
+
+class Product:
+    def __init__(self,prod_id,name,category,cost):
+        self.prod_id=prod_id
+        self.name=name
+        self.category=category
+        self.cost=cost
+    
+    
+    def selling_price(self):
+        if self.category=="A":
+            self.sp=self.cost+ self.cost*(10.5/100)
+            print("Selling Price of the product is :",self.sp)
+        elif self.category=="B":
+            self.sp=self.cost+ self.cost*(8.5/100)
+            print("Selling Price of the product is :",self.sp)
+        elif self.category=="C":
+            self.sp=self.cost+ self.cost*(7.5/100)
+            print("Selling Price of the product is :",self.sp)
+    def profit(self):
+        self.selling_price()
+        
+        self.profit=self.sp-self.cost
+        print("Profit in that product :",self.profit)
+      
+
+    def display(self):
+        print("Product id is :",self.prod_id)
+        print("Product Name :",self.name)
+        print("Category of product :",self.category)
+        print("Cost price of the product :",self.cost)
+        self.profit()
+        
+list_prod_id=[]     #To store unique product id
+ 
+my_dict={}
+       
+for i in range(3):
+    while True:
+        prod_id=int(input("Enter Product Id :"))
+        if prod_id not in list_prod_id:
+            list_prod_id.append(prod_id)
+            break
+        else:
+            print("Product Id already exists, Plz try another one..")
+    prod_name=input("Enter Product Name :")
+    
+    while True:
+        category=input("Enter the Product Category :")
+        if category=="A" or category=="B" or category=="C":
+            break
+        else:
+            print("Plz Enter a Apropriate Category of product A,B or C")
+    cost=int(input("Enter the cost price of the Product :")) 
+
+#'''---------------- -------Q 2 --------------------------------'''  
+       
+    p=Product(prod_id,prod_name,category,cost)
+    p.display()
+
+    my_dict.update({prod_id:[prod_id,prod_name,category,cost,p.profit,p.sp]})
+    
+print(my_dict)
+
+#'''-------------------------- Q 3 ---------------------------'''
+
+while True:
+    user_input=int(input("Enter Your Choice :"))
+    if user_input in range(1,6):
+        #print(user_input)
+        if user_input==1:
+            mydict_key=int(input("Enter Key value for retriving data :"))
+            if mydict_key in my_dict.keys():
+                print(my_dict[mydict_key])
+            else:
+                print("There are no such Key..")
+                
+        if user_input==2:
+            for k,v in my_dict.items():
+                print(k,' = ',v)
+                
+        if user_input==3:
+            mydict_key=int(input("Enter Key value for delete product :"))
+            
+            if mydict_key in my_dict.keys():
+                my_dict.pop(mydict_key)
+                print('After Deleting product :',my_dict)
+            else:
+                print("Key Not Avialable..")
+                
+        if user_input==4:
+            mydict_key=int(input("Enter Key value for update the product :"))
+            if mydict_key in my_dict.keys():
+                if my_dict[mydict_key][2]=='A':
+                    if my_dict[mydict_key][3] <=40000:
+                        my_dict[mydict_key][3]=my_dict[mydict_key][3]+my_dict[mydict_key][3]*(3.5/100)
+                        my_dict[mydict_key][5]=my_dict[mydict_key][3]+my_dict[mydict_key][3]*(10.5/100)
+                        my_dict[mydict_key][4]=my_dict[mydict_key][5]-my_dict[mydict_key][3]
+                    print(my_dict[mydict_key])
+                
+                if my_dict[mydict_key][2]=='B':
+                    if my_dict[mydict_key][3] in range(1000,3001):
+                        my_dict[mydict_key][3]=my_dict[mydict_key][3]+my_dict[mydict_key][3]*(2.5/100)
+                        my_dict[mydict_key][5]=my_dict[mydict_key][3]+my_dict[mydict_key][3]*(8.5/100)
+                        my_dict[mydict_key][4]=my_dict[mydict_key][5]-my_dict[mydict_key][3]
+                        
+                    print(my_dict[mydict_key])
+                
+                if my_dict[mydict_key][2]=='C':
+                    
+                    my_dict[mydict_key][3]=my_dict[mydict_key][3]+my_dict[mydict_key][3]*(1.5/100)
+                    my_dict[mydict_key][5]=my_dict[mydict_key][3]+my_dict[mydict_key][3]*(7.5/100)
+                    my_dict[mydict_key][4]=my_dict[mydict_key][5]-my_dict[mydict_key][3]
+                        
+                    print(my_dict[mydict_key])
+                    
+            
+        if user_input==5:
+            print("Thank You for using the application.., Halt")
+            
+            break
+        
+       # break
+    else:
+        print("Enter in 1 - 5 only..")
+    
+    
+    
+    
